@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+.idea/*
+static/
+*__pycache__*
+*lite3
