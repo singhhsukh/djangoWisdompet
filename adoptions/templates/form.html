@@ -1,0 +1,26 @@
+<form action="{% url 'hash_form' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input name="submit" type="submit" value="Hash">
+</form>
+
+<h2 id ="qhash"></h2>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#id_text').keyup(function (){
+        var text = $(this).val();
+
+        $.ajax({
+            url:'/quickhash',
+            data:{
+                'text':text
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#qhash').text(data['hash']);
+            }
+
+        });
+    });
+</script>

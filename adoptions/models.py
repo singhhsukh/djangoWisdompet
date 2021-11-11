@@ -17,3 +17,8 @@ class Vaccine(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Hash(models.Model):
+    text = models.TextField()
+    hash = models.CharField(max_length=64)
